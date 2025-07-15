@@ -1,0 +1,72 @@
+.users {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+.users .tabs {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 41%;
+    gap: 0.25rem;
+    margin: 1rem 0;
+}
+.users .tabs .tab {
+    width: 48%;
+    padding: 1rem;
+    border: 1px solid var(--color-primary);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 0.25rem;
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+}
+.users .tab-window {
+    display: none;
+}
+.users .tab-window.active {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.users .tab-window table {
+    display: block;
+    padding: 0.5rem;
+}
+.users .tab-window table tr th,
+.users .tab-window table tr td {
+    border: 1px solid grey;
+    border-radius: 0.25rem;
+    min-width: 13rem;
+    text-align: left;
+    padding: 0.125rem;
+}
+.users .tab-window table tr td.btn-cell {
+    min-width: 0rem;
+}
+.users-data .num-users,
+.users-data .type-users {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.users-data .num-users > p,
+.users-data .type-users > p {
+    display: block;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 2;
+    border-radius: 0.25rem;
+    border: 1px solid black;
+    min-width: 10rem;
+    text-align: center;
+    color: black;
+}
+

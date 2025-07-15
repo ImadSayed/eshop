@@ -1,0 +1,51 @@
+.edit-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    background-color: #777777;
+}
+.edit-user form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--color-primary);
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+}
+.edit-user form input,
+.edit-user form select,
+.edit-user form label {
+    color: black;
+}
+.edit-user form input[type='text'] {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+.edit-user form div.edit-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.25rem;
+}
+.edit-user form div.edit-wrapper.level select {
+    padding: 0.125rem;
+    border-radius: 0.25rem;
+    border: 1px solid black;
+    font-size: 1rem;
+    margin-left: 1rem;
+    min-width: 5rem;
+}
+.edit-user form button,
+.edit-user form a.btn {
+    width: 50%;
+    margin: 0.5rem 0 0;
+    text-align: center;
+}
