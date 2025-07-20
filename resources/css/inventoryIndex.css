@@ -1,0 +1,8 @@
+div.create {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 1rem 1rem 0 0;
+}

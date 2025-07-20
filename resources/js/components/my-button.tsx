@@ -6,7 +6,11 @@ export default function MyButton(props) {
     const classes = 'btn ' + props.class;
 
     function handleClick() {
-        window.location.href = route + '/' + id;
+        if (id > 0) {
+            window.location.href = route + '/' + id;
+        } else {
+            window.location.href = route;
+        }
     }
 
     return (

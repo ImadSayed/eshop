@@ -3,20 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Category;
+use App\Models\Product;
 use App\Models\Image;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 
-class Product extends Model
+
+class Category extends Model
 {
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -25,20 +25,16 @@ class Product extends Model
     protected $fillable = [
         'name',
         'image_ids',
-        'category',
         'description',
-        'price',
-        'stock',
-        'sku',
-        'active',
+        'active'
     ];
 
-    public function category(): BelongsTo
+    public function product(): HasOneOrMany
     {
-        return $this->belongsTo(Category::class, 'category', 'id');
+        return $this->hasOneOrMany(Product::class);
     }
 
-    public function Image(): HasOneOrMany
+    public function image(): HasOneOrMany
     {
         return $this->hasOneOrMany(Image::class);
     }
