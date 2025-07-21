@@ -3,7 +3,7 @@ export default function MyButton(props) {
     const value = props.value ?? '';
     const route = props.route ?? '';
     const id = props.id ?? 0;
-    const classes = 'btn ' + props.class;
+    const classes = 'btn ' + props.classes;
 
     function handleClick() {
         if (id > 0) {

@@ -1,0 +1,132 @@
+.image-carousel {
+    width: 320px;
+    height: 240px;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+}
+.image-carousel .images-wrapper {
+    height: 240px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+.image-carousel .images-wrapper .image-wrapper {
+    width: 320px;
+    /* height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+
+    display: inline-block;
+    height: fit-content;
+}
+.image-carousel .images-wrapper .image-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+/* .image-carousel {
+    * align-self: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    scroll-behavior: auto; *
+}
+.image-carousel .images-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+} */
+/* .image-carousel .images-wrapper .image-wrapper {
+    display: inline-block;
+    height: fit-content;
+}
+
+.image-carousel .images-wrapper .image-wrapper img {
+    width: 100%;
+    height: auto;
+} */
+
+.image-carousel .dot-window {
+    width: 80px;
+    height: 8px;
+    overflow-x: hidden;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80%;
+}
+.image-carousel .dot-window .dot-slider {
+    position: absolute;
+    left: -4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.image-carousel .dot-window .dot-slider .dot-box {
+    display: inline-flex;
+    justify-content: center;
+    width: 16px;
+    height: 8px;
+}
+.image-carousel .dot-window .dot-slider .dot-box .dot {
+    align-self: center;
+    display: flex;
+    border-radius: 50%;
+    background-color: #ccc;
+    width: 6px;
+    height: 6px;
+    transition:
+        width 400ms ease-in,
+        height 400ms ease-in;
+}
+.image-carousel .dot-window .dot-slider .dot-box .dot.active {
+    background-color: #fff;
+    width: 8px;
+    height: 8px;
+    transition: background-color 400ms;
+}
+.image-carousel .dot-window .dot-slider .dot-box .dot.nearActive {
+    width: 8px;
+    height: 8px;
+    transition:
+        width 400ms ease-in,
+        height 400ms ease-in-out,
+        background-color 200ms;
+}
+.image-carousel .dot-window .dot-slider .dot-box .dot.small {
+    width: 4px;
+    height: 4px;
+    transition:
+        width 400ms ease-in-out,
+        height 400ms ease-in;
+}
+
+.image-carousel button#leftHandle,
+.image-carousel button#rightHandle {
+    /* display: none; */
+    display: inline-block;
+    position: absolute;
+    top: 45%;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.image-carousel button#leftHandle {
+    left: 2%;
+}
+.image-carousel button#rightHandle {
+    right: 2%;
+}

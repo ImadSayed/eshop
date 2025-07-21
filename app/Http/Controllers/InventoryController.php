@@ -45,6 +45,10 @@ class InventoryController extends Controller
     {
         $product = Product::find($id);
         $category = $product->category;
+
+        $this->addAllImages($product);
+        // var_dump($product); die;
+
         return Inertia::render('inventory/products/show', [
             'isAdmin' => $this->isAdmin(),
             'product' => $product,
@@ -60,5 +64,17 @@ class InventoryController extends Controller
             $images = Image::whereIn('id', $imageIds)->get();
             $listItem['image_path'] = asset($images[0]->path) . "/" . $images[0]->name . "." . $images[0]->mime;
         }
+    }
+
+    private function addAllImages(Product &$prod): void
+    {
+        $image_ids = $prod->image_ids;
+        $imageIds = explode(',', $image_ids);
+        $images = Image::whereIn('id', $imageIds)->get();
+
+        foreach($images as $image) {
+            $image['imagePath'] = asset($image->path) . "/" . $image->name . "." . $image->mime;
+        }
+        $prod['images'] = $images;
     }
 }
