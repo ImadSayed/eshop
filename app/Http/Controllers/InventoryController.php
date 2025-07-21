@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Image;
+use Illuminate\Database\Eloquent\Collection;
 
 class InventoryController extends Controller
 {
@@ -16,13 +17,48 @@ class InventoryController extends Controller
     {
         $categories = Category::all();
         $products = Product::all();
-        $images = Image::all();
+        
+        $this->addImages($categories);
 
         return Inertia::render('inventory/index', [
             'isAdmin' => $this->isAdmin(),
             'categories' => $categories,
-            'products' => $products,
-            'images' => $images
+            'products' => $products
         ]);
+    }
+
+    public function showProducts($id)
+    {
+        $category = Category::find($id);
+        $products = Product::where('category', $id)->get();
+        
+        $this->addImages($products);
+
+        return Inertia::render('inventory/products/index', [
+            'isAdmin' => $this->isAdmin(),
+            'category' => $category,
+            'products' => $products
+        ]);
+    }
+
+    public function showProduct($id)
+    {
+        $product = Product::find($id);
+        $category = $product->category;
+        return Inertia::render('inventory/products/show', [
+            'isAdmin' => $this->isAdmin(),
+            'product' => $product,
+            'category' => $category
+        ]);
+    }
+
+    private function addImages(Collection &$listItems): void
+    {
+        foreach($listItems as $listItem) {
+            $image_ids = $listItem->image_ids ?? '';
+            $imageIds = explode(',', $image_ids);
+            $images = Image::whereIn('id', $imageIds)->get();
+            $listItem['image_path'] = asset($images[0]->path) . "/" . $images[0]->name . "." . $images[0]->mime;
+        }
     }
 }

@@ -16,7 +16,7 @@ class ImageSeeder extends Seeder
         Image::factory()->create([
             'name' => 'default',
             'mime' => 'jpg',
-            'path' => 'app/public/images/',
+            'path' => 'storage/media/',
             'active' => 1
         ]);
     }

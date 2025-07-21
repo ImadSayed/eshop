@@ -9,25 +9,26 @@ const breadcrumbs: BreadcrumbItem[] = [
         title: 'Inventory',
         href: '/inventory',
     },
+    {
+        title: 'Products',
+        href: '/products',
+    },
 ];
 
-export default function Inventory(props) {
-    const categories = props.categories;
+export default function Products(props) {
+    const category = props.category;
     const products = props.products;
-    const images = props.images;
 
-    console.log(categories);
-    console.log(images);
-    console.log(products);
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Inventory" />
-            <div className="categories-wrapper">
+            <Head title="Products" />
+            <div className="products-wrapper">
                 <div className="create">
-                    <MyButton type="button" value="Add Category" route="category/create" classes="btn-primary"></MyButton>
+                    <MyButton type="button" value="Add Product" route="category/create" classes="btn-primary"></MyButton>
                 </div>
-                <div className="categories">
-                    <ItemList items={categories} route="category" style="btns"></ItemList>
+                <h2>{category.name}</h2>
+                <div className="products-list-wrapper">
+                    <ItemList items={products} route="product" style="btns"></ItemList>
                 </div>
             </div>
         </AppLayout>

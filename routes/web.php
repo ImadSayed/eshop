@@ -21,6 +21,8 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::put('users/update', [UsersController::class, 'update'])->name('users.update');
 
     Route::get('inventory', [InventoryController::class, 'index'])->name('inventory.index');
+    Route::get('category/{id}', [InventoryController::class, 'showProducts'])->name('products.index');
+    Route::get('product/{id}', [InventoryController::class, 'showProduct'])->name('products.show');
 });
 
 require __DIR__.'/settings.php';
