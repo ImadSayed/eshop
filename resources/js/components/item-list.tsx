@@ -1,11 +1,14 @@
-interface item {
-    id: BigInteger;
-    name: string;
-    image_path: string;
-}
+import { Link } from 'react-router-dom';
+import ProductCard from './product-card';
+
+// interface item {
+//     id: BigInteger;
+//     name: string;
+//     image_path: string;
+// }
 
 export default function ItemList(props) {
-    const items = props.items;
+    const items = [...props.items];
     let classes = 'list-items ';
     classes += props.style == 'btns' ? 'list-btns' : '';
 
@@ -17,10 +20,9 @@ export default function ItemList(props) {
         <ul className={classes}>
             {items.map((item) => (
                 <li key={item.id}>
-                    <a href={`/${props.route}/${item.id}`}>
-                        <img src={item.image_path} alt={'product ' + item.name} />
-                        <p>{item.name}</p>
-                    </a>
+                    <Link to={`/${props.route}/${item.id}`}>
+                        <ProductCard item={item}></ProductCard>
+                    </Link>
                 </li>
             ))}
         </ul>

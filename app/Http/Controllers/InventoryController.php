@@ -18,7 +18,7 @@ class InventoryController extends Controller
         $categories = Category::all();
         $products = Product::all();
         
-        $this->addImages($categories);
+        // $this->addImages($categories);
 
         return Inertia::render('inventory/index', [
             'isAdmin' => $this->isAdmin(),

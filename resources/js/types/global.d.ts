@@ -19,3 +19,23 @@ declare module '@inertiajs/core' {
         defaultUsers?: User[];
     }
 }
+
+export interface Category {
+    id: number;
+    name: string;
+    image_ids: [];
+    description: Text;
+    active: boolean;
+}
+
+export interface Product {
+    id: number;
+    category: number;
+    name: string;
+    image_ids: [];
+    description: Text;
+    price: Float16Array;
+    stock: BigInteger;
+    sku: string;
+    active: boolean;
+}

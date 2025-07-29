@@ -5,6 +5,8 @@ import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { useState } from 'react';
 
+import '../../../css/usersIndex.css';
+
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Users',
@@ -12,13 +14,25 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+// interface Users {
+//     type: 'default' | 'admin';
+//     count: number;
+// }
+
+// function users(userType: Users) {
+//     const { type, count } = userType;
+//     const display = type + (count === 1 ? ' User' : ' Users');
+// }
+
+// function han
+
 export default function Users(props) {
     const defaultUsers = props.defaultUsers ?? [];
     const adminUsers = props.adminUsers ?? [];
     const [activeUsers, setActiveUsers] = useState('default');
-    let numberOfActiveUsers = activeUsers == 'default' ? defaultUsers.length : adminUsers.length;
-    let userString = numberOfActiveUsers == 1 ? 'user' : 'users';
-    let typeOfUsers = activeUsers == 'default' ? 'Default Users' : 'Admin Users';
+    const numberOfActiveUsers = activeUsers == 'default' ? defaultUsers.length : adminUsers.length;
+    const userString = numberOfActiveUsers == 1 ? 'user' : 'users';
+    const typeOfUsers = activeUsers == 'default' ? 'Default Users' : 'Admin Users';
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Users" />

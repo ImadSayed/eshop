@@ -1,36 +1,21 @@
-import ItemList from '@/components/item-list';
-import MyButton from '@/components/my-button';
-import AppLayout from '@/layouts/app-layout';
-import { type BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/react';
+// import { Link } from 'react-router-dom';
 
-const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Inventory',
-        href: '/inventory',
-    },
-    {
-        title: 'Products',
-        href: '/products',
-    },
-];
+// const temp = <RouterProvider />;
 
-export default function Products(props) {
-    const category = props.category;
+export default function ProductsHome(props) {
     const products = props.products;
+    const category = props.category;
 
-    return (
-        <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Products" />
-            <div className="products-wrapper">
-                <div className="create">
-                    <MyButton type="button" value="Add Product" route="category/create" classes="btn-primary"></MyButton>
-                </div>
-                <h2>{category.name}</h2>
-                <div className="products-list-wrapper">
-                    <ItemList items={products} route="product" style="btns"></ItemList>
-                </div>
-            </div>
-        </AppLayout>
-    );
+    // return (
+    //     <React.StrictMode>
+    //         <RouterProvider router={router}>
+    //             {/* <CategoryContext value={category} > */}
+    // <ProductContext value={products}>
+    // <Products />
+    // </ProductContext>
+    //         {/* </CategoryContext> */}
+    //     </RouterProvider>
+    // </React.StrictMode>
+    // );
+    return '';
 }
