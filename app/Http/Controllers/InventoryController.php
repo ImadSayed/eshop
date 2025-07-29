@@ -17,8 +17,9 @@ class InventoryController extends Controller
     {
         $categories = Category::all();
         $products = Product::all();
-        
-        // $this->addImages($categories);
+
+        $this->addFirstImagePath($categories);
+        $this->addFirstImagePath($products);
 
         return Inertia::render('inventory/index', [
             'isAdmin' => $this->isAdmin(),
@@ -31,7 +32,7 @@ class InventoryController extends Controller
     {
         $category = Category::find($id);
         $products = Product::where('category', $id)->get();
-        
+
         $this->addImages($products);
 
         return Inertia::render('inventory/products/index', [
@@ -76,5 +77,16 @@ class InventoryController extends Controller
             $image['imagePath'] = asset($image->path) . "/" . $image->name . "." . $image->mime;
         }
         $prod['images'] = $images;
+    }
+
+    private function addFirstImagePath(Collection &$listItems): void
+    {
+        foreach($listItems as $listItem) {
+            $image_ids = $listItem->image_ids ?? '';
+            $imageIds = explode(',', $image_ids);
+            $firstImageId = intval($imageIds[0]);
+            $image = Image::find($firstImageId);
+            $listItem['first_image'] = asset($image->path) . "/" . $image->name . "." . $image->mime;
+        }
     }
 }

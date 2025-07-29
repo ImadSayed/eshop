@@ -45,22 +45,12 @@ export default function Products() {
     const productList = GetProductList(categoryId);
     const categoryName = GetCategoryName(categoryId);
 
-    console.log('Products');
-    console.log('Products');
-    console.log('Products');
-
-    console.log('Products');
-    console.log('Products');
-    console.log('Products');
-    console.log(categoryName);
-
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Products" />
             <div className="products-wrapper">
                 <div className="create">
                     <Link to="/product/create">Add Product</Link>
-                    {/* <MyButton type="button" value="Add Product" route="category/create" classes="btn-primary"></MyButton> */}
                 </div>
                 <ItemHomePage title={categoryName} items={productList} route="product"></ItemHomePage>
             </div>
